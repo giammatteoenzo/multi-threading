@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = multithreads
+build_property.ProjectDir = /Users/enzogiammatteo/Desktop/multi-threading/multithreads/

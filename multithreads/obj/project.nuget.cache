@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mRMpTy4pVl0xie4pUP4gkEGwIqhsetxpSdkyEUR2r4Wo0sgBKShXlPrraF3xVyUBBnO2r/VPQWx/vsLjp+matQ==",
+  "success": true,
+  "projectFilePath": "/Users/enzogiammatteo/Desktop/multi-threading/multithreads/multithreads.csproj",
+  "expectedPackageFiles": [
+    "/Users/enzogiammatteo/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "/Users/enzogiammatteo/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.1.31/microsoft.netcore.app.host.osx-x64.3.1.31.nupkg.sha512"
+  ],
+  "logs": []
+}
