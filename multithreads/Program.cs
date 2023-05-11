@@ -67,4 +67,60 @@ Parallel.For(0, numFiles, i =>
 stopwatch.Stop();
 Console.WriteLine("Création des fichiers avec paralélisation  terminée en " + stopwatch.ElapsedMilliseconds + " ms.");
 
+List<string> fileContents = new List<string>();
+
+for (int i = 0; i < numFiles; i++)
+{
+    string filePath = "./files/" + i.ToString() + fileExtension;
+
+    using (StreamReader reader = File.OpenText(filePath))
+    {
+        char[] buffer = new char[10000];
+        reader.ReadBlock(buffer, 0, 10000);
+        fileContents.Add(new string(buffer));
+    }
+}
+
+// Sorting the lists using a heavy sorting algorithm 
+void BubbleSort(char[] arr)
+{
+    int n = arr.Length;
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - 1 - i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                char temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+stopwatch.Restart();
+
+// Non-parallelized sorting
+foreach (string content in fileContents)
+{
+    char[] charArray = content.ToCharArray();
+    BubbleSort(charArray);
+}
+
+stopwatch.Stop();
+Console.WriteLine("Tri sans paralélisation terminée en  " + stopwatch.ElapsedMilliseconds + " ms.");
+
+stopwatch.Restart();
+
+// Parallelized sorting
+Parallel.ForEach(fileContents, (content) =>
+{
+    char[] charArray = content.ToCharArray();
+    BubbleSort(charArray);
+});
+
+stopwatch.Stop();
+Console.WriteLine("Tri avec paralélisation terminé en " + stopwatch.ElapsedMilliseconds + " ms.");
+
 Console.ReadLine();
